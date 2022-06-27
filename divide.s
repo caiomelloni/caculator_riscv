@@ -8,12 +8,10 @@ Divisão binária
     se nao:
     - desloque o quociente logicamente para esquerda
 4 - desloque o divisor 1 vez para a direita
-5 - se dividendo >= divisor:
+5 - se dividendo >= divisor ou se o divisor chegou em um valor menor que o inicial, então pare
     pule para o passo 3
 6 - quociente está correto, resto <- dividendo
-
 */
-
 
 fun_divide: # retorno: a0 -> resto | a1 -> quociente | a3 -> 0 para resultado negativo, 1 para positivo
 # a0 -> dividendo
