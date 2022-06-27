@@ -15,7 +15,7 @@ Divisão binária
 */
 
 
-fun_divide: # retorno: a0 -> resto | a1 -> quociente
+fun_divide: # retorno: a0 -> resto | a1 -> quociente | a3 -> 0 para resultado negativo, 1 para positivo
 # a0 -> dividendo
 # a1 -> divisor
 # s0 -> quociente
@@ -71,8 +71,11 @@ slli s0, s0, 1
 passo_4:
 srli a1, a1, 1
 
-# 5 - se dividendo >= divisor, pule para o passo 3
+# 5 - 
+# se dividendo >= divisor, pule para o passo 3
 bge a0, s1, passo_3
+# se o divisor chegou em um valor menor que o inicial, então pare
+bge a1, s1, passo_3
 
 # 6 - quociente está correto, resto <- dividendo
 add a1, zero, s0
