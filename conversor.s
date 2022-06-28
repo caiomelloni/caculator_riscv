@@ -16,6 +16,10 @@ output:
 	.word 0x65682e32
 	.word 0x2e330a78
 	.word 0x0a6e6962
+msgNum:
+    .word 0x006d756e
+	.word 0x3a6f7265
+
 
 .section .text
 printHex:
@@ -222,6 +226,18 @@ input:
     # input da opcao
     addi t0, zero, 4
     ecall
+
+    add s11, zero, a0
+
+
+    lui a0, %hi(msgNum)
+    addi a0, a0, %lo(msgNum)
+    addi t0, zero, 3
+    addi a1, zero, 8
+    ecall
+
+    add a0, zero, s11
+
 
     # opcao 3
     addi t1, zero, 3
